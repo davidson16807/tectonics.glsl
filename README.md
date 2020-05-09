@@ -22,7 +22,7 @@ The following are the major subcomponents offered by tectonics.glsl:
   * **geometry** 
     * **mensuration** functions for determining the areas and volumes of common geometric solids
     * **point intersection** signed distance functions and functions for testing whether a point is inside a geometric solid
-    * **line intersection** functions for determining distances at which a line intersects a solid formed from constructive solid geometry
+    * **line intersection** functions for determining distances at which a line intersects common geometric solids
     * **surface normals** gradients of common signed distance functions
   * **functional analysis** functions for converting to and from common function spaces: fourier, spherical harmonics, DCT, etc.
 * **physics**
