@@ -1,6 +1,6 @@
 
 
-float get_2d_simplex_perlin_noise(
+float get_2d_simplex_noise(
     in vec2 V,
     in mat2 K 
 ){
@@ -62,7 +62,7 @@ void get_3d_simplex_index_offsets(
     // offset1 contains 1 in the single channel that was 1
 }
 
-float get_3d_simplex_perlin_noise(
+float get_3d_simplex_noise(
     in vec3 V,
     in mat3 K 
 ){
@@ -131,7 +131,7 @@ void get_4d_simplex_index_offsets(
     offset1 = clamp( offset0-2.0, 0.0, 1.0 );
 }
 
-float get_4d_simplex_perlin_noise(
+float get_4d_simplex_noise(
     in vec4 V,
     in mat4 K 
 ){
@@ -173,5 +173,80 @@ float get_4d_simplex_perlin_noise(
         t2 * dot(normalize(noise4(K*I2)-0.5), F2) +
         t3 * dot(normalize(noise4(K*I3)-0.5), F3) +
         t4 * dot(normalize(noise4(K*I4)-0.5), F4)
+    );
+}
+
+
+vec2 get_2d_simplex_noise_vec3(
+    in vec2 V,
+    in mat2 K0,
+    in mat2 K1
+){
+    return vec2(
+        get_2d_simplex_noise(V,K0),
+        get_2d_simplex_noise(V,K1)
+    );
+}
+
+vec2 get_3d_simplex_noise_vec2(
+    in vec3 V,
+    in mat3 K0,
+    in mat3 K1
+){
+    return vec2(
+        get_3d_simplex_noise(V,K0),
+        get_3d_simplex_noise(V,K1)
+    );
+}
+
+vec3 get_3d_simplex_noise_vec3(
+    in vec3 V,
+    in mat3 K0,
+    in mat3 K1,
+    in mat3 K2
+){
+    return vec3(
+        get_3d_simplex_noise(V,K0),
+        get_3d_simplex_noise(V,K1),
+        get_3d_simplex_noise(V,K2)
+    );
+}
+
+vec2 get_4d_simplex_noise_vec2(
+    in vec4 V,
+    in mat4 K0,
+    in mat4 K1
+){
+    return vec2(
+        get_4d_simplex_noise(V,K0),
+        get_4d_simplex_noise(V,K1)
+    );
+}
+
+vec3 get_4d_simplex_noise_vec3(
+    in vec4 V,
+    in mat4 K0,
+    in mat4 K1,
+    in mat4 K2
+){
+    return vec3(
+        get_4d_simplex_noise(V,K0),
+        get_4d_simplex_noise(V,K1),
+        get_4d_simplex_noise(V,K2)
+    );
+}
+
+vec4 get_4d_simplex_noise_vec4(
+    in vec4 V,
+    in mat4 K0,
+    in mat4 K1,
+    in mat4 K2,
+    in mat4 K3
+){
+    return vec4(
+        get_4d_simplex_noise(V,K0),
+        get_4d_simplex_noise(V,K1),
+        get_4d_simplex_noise(V,K2),
+        get_4d_simplex_noise(V,K3)
     );
 }

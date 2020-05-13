@@ -1,8 +1,8 @@
 
 /*
-faster, but may be more prone to tiling
+fastest, but may be more prone to tiling
 */
-float get_fast_2d_worley_noise(
+float get_fastest_2d_worley_noise(
     vec2 V
 ) {
     mat2 R = mat2(7, -5, 5, 7)*.1;
@@ -22,7 +22,7 @@ float get_worley_object(in vec3 P){
     
 }
 // borrowed from https://www.shadertoy.com/view/XsKXRh
-float get_fast_3d_worley_noise(
+float get_fastest_3d_worley_noise(
     in vec3 P,
     in mat3 K
 ){

@@ -87,3 +87,77 @@ float get_4d_value_noise(
     }
     return clamp(a, 0.f, 1.f);
 }
+
+vec2 get_2d_value_noise_vec3(
+    in vec2 V,
+    in mat2 K0,
+    in mat2 K1
+){
+    return vec2(
+        get_2d_value_noise(V,K0),
+        get_2d_value_noise(V,K1)
+    );
+}
+
+vec2 get_3d_value_noise_vec2(
+    in vec3 V,
+    in mat3 K0,
+    in mat3 K1
+){
+    return vec2(
+        get_3d_value_noise(V,K0),
+        get_3d_value_noise(V,K1)
+    );
+}
+
+vec3 get_3d_value_noise_vec3(
+    in vec3 V,
+    in mat3 K0,
+    in mat3 K1,
+    in mat3 K2
+){
+    return vec3(
+        get_3d_value_noise(V,K0),
+        get_3d_value_noise(V,K1),
+        get_3d_value_noise(V,K2)
+    );
+}
+
+vec2 get_4d_value_noise_vec2(
+    in vec4 V,
+    in mat4 K0,
+    in mat4 K1
+){
+    return vec2(
+        get_4d_value_noise(V,K0),
+        get_4d_value_noise(V,K1)
+    );
+}
+
+vec3 get_4d_value_noise_vec3(
+    in vec4 V,
+    in mat4 K0,
+    in mat4 K1,
+    in mat4 K2
+){
+    return vec3(
+        get_4d_value_noise(V,K0),
+        get_4d_value_noise(V,K1),
+        get_4d_value_noise(V,K2)
+    );
+}
+
+vec4 get_4d_value_noise_vec4(
+    in vec4 V,
+    in mat4 K0,
+    in mat4 K1,
+    in mat4 K2,
+    in mat4 K3
+){
+    return vec4(
+        get_4d_value_noise(V,K0),
+        get_4d_value_noise(V,K1),
+        get_4d_value_noise(V,K2),
+        get_4d_value_noise(V,K3)
+    );
+}

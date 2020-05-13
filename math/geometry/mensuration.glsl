@@ -23,12 +23,14 @@ float get_perimeter_of_triangle(
     return length(vertex1-vertex2) + length(vertex2-vertex3) + length(vertex3-vertex1);
 }
 float get_area_of_triangle(
-    in vec2 vertex1,
-    in vec2 vertex2,
-    in vec2 vertex3
+    in vec2 A,
+    in vec2 B,
+    in vec2 C
 ) {
     // half the magnitude of the cross product
-    return 0.5f * abs((vertex1.x*(vertex2.y-vertex3.y) + vertex2.x*(vertex3.y-vertex1.y)+ vertex3.x*(vertex1.y-vertex2.y)));
+    vec2 C = B-A;
+    vec2 D = C-A;
+    return 0.5f * abs(C.x*D.y - C.y*D.x);
 }
 float get_surface_area_of_sphere(
     in float radius

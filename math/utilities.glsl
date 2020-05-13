@@ -5,8 +5,17 @@
 It's a handy function that comes up a lot in some physics problems.
 It's pretty useful for preventing division by zero.
 */
-float oplus(in float a, in float b){
+float oplus(in float a, in float b)
+{
     return 1. / (1./a + 1./b);
+}
+
+/*
+2d cross product
+*/
+float cross2(in vec2 A, in vec2 B)
+{
+    return A.x*B.y - A.y*B.x;
 }
 
 /*
