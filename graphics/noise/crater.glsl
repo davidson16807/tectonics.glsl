@@ -3,7 +3,7 @@
 "get_3d_crater_noise" generates a varient of worley noise 
 where each neighboring point has a variable max radius
 */
-float get_3d_crater_noise(in vec3 position, in float max_radius, in mat3 position_seed, in vec3 radius_seed)
+float get_3d_worley_noise_craters(in vec3 position, in float max_radius, in mat3 position_seed, in vec3 radius_seed)
 {
     vec3 index = floor(position);
         

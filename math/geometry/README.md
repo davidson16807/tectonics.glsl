@@ -5,10 +5,11 @@ This folder contains a basic geometry library for use in shaders and other C-sty
 It is motivated for use in raycasting, raytracing, and geometric analysis (e.g. determining phase from phase diagrams)
 As a result, the library supports operations in both 2d and 3d and is limited to the following tasks:
 * **mensuration**: finding perimeters, areas, surface areas, and volumes of primitive shapes
-* **point-shape intersection**: finding signed distances from points to primitive shapes
+* **point-shape intersection**: testing whether points intersect with primitive shapes
+* **signed distance functions**: finding signed distances from points to primitive shapes
+* **surface normal calculation**: finding surface normals of primitive shapes as the gradient of their signed distance function
 * **line-shape intersection**: finding signed distances along lines to the intersection with primitive shapes
 * **line-csg intersection**: finding signed distances along lines to the intersection with shapes formed by constructive solid geometry
-* **surface normal calculation**: finding surface normals of primitive shapes as the gradient of their signed distance function
 
 ## DESIGN PRINCIPLES:
 * **Functionally pure**: 

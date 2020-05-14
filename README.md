@@ -5,9 +5,10 @@
 
 We choose glsl as our main development language for a few reasons:
 
-* glsl is a simple language. It has a [simple grammar](https://www.khronos.org/registry/OpenGL/specs/gl/glspec33.core.pdf) that can be easily described within transpilers, and it has a limited set of language features that are frequently supported in most other languages, making transpilation straight forward. 
+* glsl is a simple language. It has a [simple grammar](https://www.khronos.org/registry/OpenGL/specs/gl/glspec33.core.pdf) that can be easily described within transpilers, and it has a limited set of language features that are frequently supported in other languages, making transpilation straight forward. 
 * glsl is a strictly procedural language. This makes it very easy to guarantee functional purity within library code.
-* glsl has built in linear algebra functionality. Many other languages have libraries that attempt to reimplement this functionality to create a common frame of mind (e.g. [glm](https://glm.g-truc.net/0.9.9/index.html), [cglm](https://github.com/recp/cglm), [glm-js](http://humbletim.github.io/glm-js/), [PyGLM](https://pypi.org/project/PyGLM/))
+* glsl has built in linear algebra functionality. Many other languages have libraries that attempt to reimplement this functionality to create a common frame of mind (e.g. [glm](https://glm.g-truc.net/0.9.9/index.html), [cglm](https://github.com/recp/cglm), [glm-js](http://humbletim.github.io/glm-js/), [PyGLM](https://pypi.org/project/PyGLM/)). This is another reason glsl is easy to transpile. 
+* glsl provides the quickest route to a [minimum viable product](https://en.wikipedia.org/wiki/Minimum_viable_product) when developing new features, thanks to sites like [shadertoy](http://shadertoy.com/). Often when developing a new feature, you need to start with the smallest subset of code that can provide you with feedback for you to iterate on. This often comes down to user-interface-first development, and in the case of 3d graphics applications, this comes down to shader-first development. 
 
 This library is not just designed for use by tectonics.js. Numerous space simulators can make use of the functionality here. The components here are lightweight and loosely coupled. Parts of the library can be easily taken out, mixed and matched, and modified. It's a shame really if this library only gets used once. 
 
