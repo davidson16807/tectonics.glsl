@@ -117,19 +117,22 @@ vec3 get_rgb_fraction_of_distant_light_scattered_by_atmosphere(
     vec3 beta_sum = h*(beta_ray + beta_mie + beta_abs);
     vec3 beta_gamma = h*(beta_ray * gamma_ray + beta_mie * gamma_mie);
     // number of iterations within the raymarch
-    const float STEP_COUNT = 6.;
+    const float STEP_COUNT = 8.;
     float dv = (v1 - v0) / STEP_COUNT;
-    float vi = v0;
     float dl = dv*VL;
-    float li = dot(V0,L);
-    float y = dot(V0,normalize(cross(V,L)));
+    float l0 = dot(V0,L);
+    float y  = dot(V0,normalize(cross(V,L)));
     float y2 = y*y;
     float zv2 = dot(V0,V0) - y2 - v0*v0;
     float zl2 = 0.0;
+    float vi = v0;
+    float li = l0;
     float sigma; // columnar density encountered along the entire path, relative to surface density, effectively the distance along the surface needed to obtain a similar column density
     vec3 F = vec3(0); // total intensity for each color channel, found as the sum of light intensities for each path from the light source to the camera
     for (float i = 0.; i < STEP_COUNT; ++i)
     {
+        vi = dv*i + v0;
+        li = VL*(vi-v0) + l0;
         zl2 = vi*vi + zv2 - li*li;
         sigma = approx_air_column_density_ratio_through_atmosphere(v0, vi, y2+zv2, r )
               + approx_air_column_density_ratio_through_atmosphere(li, 3.*r, y2+zl2, r );
@@ -137,12 +140,8 @@ vec3 get_rgb_fraction_of_distant_light_scattered_by_atmosphere(
             // NOTE: the above is equivalent to the incoming fraction multiplied by the outgoing fraction:
             // incoming fraction: the fraction of light that scatters towards camera
             //   exp(r-sqrt(vi*vi+y2+zv2)) * beta_gamma * dv
-            // emission : 
-            //   exp(r-sqrt(vi*vi+y2+zv2)) * beta_gamma * dv
             // outgoing fraction: the fraction of light that scatters away from camera
             // * exp(-beta_sum * sigma);
-        vi += dv;
-        li += dl;
     }
     return F;
 }
