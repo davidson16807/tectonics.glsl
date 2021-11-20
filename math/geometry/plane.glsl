@@ -4,7 +4,7 @@ A0 point position
 B0 plane reference
 N  vertex normal
 */
-bool is_3d_point_in_region_bounded_by_plane(in vec3 A0, in vec3 B0, in vec3 N)
+bool is_3d_point_in_half_space(in vec3 A0, in vec3 B0, in vec3 N)
 {
     return dot(A0-B0, N) < 0.;
 }
@@ -13,7 +13,7 @@ A0 point position
 B0 plane reference
 N  vertex normal
 */
-float get_distance_of_3d_point_to_region_bounded_by_plane(in vec3 A0, in vec3 B0, in vec3 N)
+float get_distance_of_3d_point_to_half_space(in vec3 A0, in vec3 B0, in vec3 N)
 {
     return dot(A0-B0, N);
 }

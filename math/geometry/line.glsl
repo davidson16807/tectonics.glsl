@@ -72,33 +72,6 @@ A  line direction, normalized
 B0 line segment endpoint 1
 B1 line segment endpoint 2
 */
-
-/*
-A0 point position
-B0 line reference
-N  surface normal of region, normalized
-
-NOTE: in this case, N only needs to indicate the direction facing outside, 
- it need not be perfectly normal to B
-*/
-bool is_2d_point_in_region_bounded_by_line(in vec2 A0, in vec2 B0, in vec2 N)
-{
-    return dot(A0-B0, N) < 0.;
-}
-
-/*
-A0 point position
-B0 line reference
-N  surface normal of region, normalized
-
-NOTE: in this case, N only needs to indicate the direction facing outside, 
- it need not be perfectly normal to B
-*/
-float get_distance_of_2d_point_to_region_bounded_by_line(in vec2 A0, in vec2 B0, in vec2 N)
-{
-    return dot(A0-B0, N);
-}
-
 maybe_float get_distance_along_2d_line_to_line_segment(
     in vec2 A0,
     in vec2 A,
